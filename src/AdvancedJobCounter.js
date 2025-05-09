@@ -23,6 +23,14 @@ const AdvancedJobCounter = () => {
     setJobCounter(0);
   }
 
+  // Add a new state variable to track the environment (e.g., "Production" and "UAT") 
+  const [environment, setEnvironment] = useState("Production");
+
+  // Implement a toggle button to switch between environments 
+  const toggleEnvEvent = () => {
+    setEnvironment(environment === "Production" ? "UAT" : "Production");
+  }
+  
   // Displays different messages based on the job count
   const message = jobCounter === 0 ? "No jobs available" : 
             jobCounter >= 1 && jobCounter <= 5 ? "Few jobs available" :
@@ -33,8 +41,14 @@ const AdvancedJobCounter = () => {
     <div className="container">
       <h1>Advanced Job Counter</h1>
       {/* Displays current job count */}
-      <p>Current jobs: {jobCounter}</p>
-      
+      <p>Current jobs running: {jobCounter}</p>
+
+      {/* Display the current environment along with the job count */}
+      <p>Jobs running in {environment}: {environment === "UAT" ? jobCounter - 5 : jobCounter}</p>
+      <div className="form-group">
+        <button className="environment" onClick={toggleEnvEvent}>Change to {environment}</button> 
+      </div>
+
       {/* Added buttons for each action */}
       <div className="form-group">
         <button className="add" onClick={handleAddEvent}>Add a job</button>
