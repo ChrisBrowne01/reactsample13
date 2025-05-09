@@ -5,6 +5,8 @@ import './AdvancedJobCounter.css'
 const AdvancedJobCounter = () => {
   // useState hook to manage the job counter state
   const [jobCounter, setJobCounter] = useState(0);
+  // Add a new state variable to track the environment (e.g., "Production" and "UAT") 
+  const [environment, setEnvironment] = useState("Production");
 
   // Event handler for adding to the job counter
   const handleAddEvent = () => {
@@ -22,9 +24,6 @@ const AdvancedJobCounter = () => {
   const handleResetEvent = () => {
     setJobCounter(0);
   }
-
-  // Add a new state variable to track the environment (e.g., "Production" and "UAT") 
-  const [environment, setEnvironment] = useState("Production");
 
   // Implement a toggle button to switch between environments 
   const toggleEnvEvent = () => {
