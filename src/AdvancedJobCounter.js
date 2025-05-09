@@ -17,7 +17,7 @@ const AdvancedJobCounter = () => {
       setJobCounter(jobCounter - 1);
     }
   }
-  
+
   // Event handler for resetting the job counter
   const handleResetEvent = () => {
     setJobCounter(0);
@@ -30,18 +30,24 @@ const AdvancedJobCounter = () => {
             "No jobs available";
 
   return (
-    <div>
+    <div className="container">
       <h1>Advanced Job Counter</h1>
       {/* Displays current job count */}
       <p>Current jobs: {jobCounter}</p>
       
       {/* Added buttons for each action */}
-      <button onClick={handleAddEvent}>Add a job</button>
-      <button onClick={handleSubEvent}>Remove a job</button>
-      <button onClick={handleResetEvent}>Reset</button>
+      <div className="form-group">
+        <button className="add" onClick={handleAddEvent}>Add a job</button>
+      </div>
+      <div className="form-group">
+        <button className="remove" onClick={handleSubEvent}>Remove a job</button>
+      </div>
+      <div className="form-group">
+        <button className="reset" onClick={handleResetEvent}>Reset</button>
+      </div>
 
       {/* Displays diffenent messages based on the job count */}
-      <p>{message}</p>
+      <p className="message">{message}</p>
     </div>
   )
 }
